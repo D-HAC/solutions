@@ -20,15 +20,12 @@ def subtract(x):
 x = int(sys.argv[1])
 print x
 
-while x > 3:
+while x > 1:
 	if x%3 == 0:
 		x = divide(x)
 	elif (x+1)%3 == 0:
 		x = add(x)
 	elif (x-1)%3 == 0:
 		x = subtract(x)
-								#x <= 3 by now
-if x < 3:
-	print "<3"					#unhelpful output
-else:
-	print x
+
+print x
