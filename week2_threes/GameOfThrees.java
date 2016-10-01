@@ -21,5 +21,7 @@ public class GameOfThrees
 					break;
 			}
 		}
+		
+		System.out.println(x);
 	}
 }
