@@ -2,6 +2,8 @@
 #
 # Degree Conversions - Ruby Solution
 #
+# Author: Peter Gagliardi
+#
 # To Run: `ruby degrees.rb` or `./degrees.rb`
 #
 
