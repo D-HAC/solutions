@@ -1,0 +1,3 @@
+To compile:
+
+g++ -std=c++11 -o degrees main.cpp convert.cpp convert.h
