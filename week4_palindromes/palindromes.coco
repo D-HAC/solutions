@@ -1,0 +1,52 @@
+'''
+Week 4 Palindromes: Coconut Solution
+
+(see http://coconut-lang.org/)
+
+To run:
+
+coconut -rn palindromes.coco
+
+Author: Peter Gagliardi
+'''
+import sys
+import re
+
+def is_palindrome(text):
+    case text:
+        # Empty sequence is a palindrome
+        match []:
+            return True
+        # A single element is a palindrome
+        match [_]:
+            return True
+        match [x] + mid + [x]:
+            return is_palindrome(mid)
+        match [x] + mid + [y]:
+            return False
+
+def test_palindrome(s):
+    case s:
+        match s if is_palindrome(s):
+            return "Palindrome"
+        match _:
+            return "Not a palindrome"
+
+# Get the number of lines
+size = int(input("Length: "))
+
+# Get the lines from standard input, removing newlines
+lines = [input("> ").rstrip() for i in range(size)]
+
+# Combine the lines into one big string
+all_together = "".join(lines)
+
+# Remove all non-alphabetic characters
+only_alpha = re.sub("[^A-Za-z]", "", all_together)
+
+# Convert to lowercase
+lower = only_alpha.lower()
+
+# Test if the text a palindrome
+lower |> test_palindrome |> print
+
