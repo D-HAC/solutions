@@ -6,7 +6,8 @@
 static bool isPalindrome(char* s);
 
 bool isPalindrome(char* s) {
-    // Makes search O(n/2+1) instead of O(n)
+    // Should make program faster... but after benchmarking the asm technically makes it 
+    // slower than a normal if (s[i] != s[palLen - i - 1] solution.
     int palLen = strlen(s) / 2 + 1;
 
     for (int i = 0; i < palLen; i++) {
