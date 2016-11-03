@@ -53,9 +53,9 @@ void countDNA(char *dna) {
   for (int i = 0; i < strlen(dna); i++) {
     // i[dna] == dna[i] via pointer identity
     if (asmCheck('A', i[dna])) { *a = asmInc(a); }
-    if (asmCheck('C', i[dna])) { *c = asmInc(c); }
-    if (asmCheck('G', i[dna])) { *g = asmInc(g); }
-    if (asmCheck('T', i[dna])) { *t = asmInc(t); }
+    else if (asmCheck('C', i[dna])) { *c = asmInc(c); }
+    else if (asmCheck('G', i[dna])) { *g = asmInc(g); }
+    else if (asmCheck('T', i[dna])) { *t = asmInc(t); }
   }
 
   printf("A: %d, C: %d, G: %d, T: %d\n", *a, *c, *g, *t);
