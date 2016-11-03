@@ -44,25 +44,32 @@ int asmInc(int *n) {
 void countDNA(char *dna) {
 
   // Reserve space in memory for read/write and to prevent SIGSEGV
-  int *a = 0; int *c = 0; int *g = 0; int *t = 0;
+  int *a, *c, *g, *t = 0;
   a = (int *)malloc(sizeof(a));
   c = (int *)malloc(sizeof(c));
   g = (int *)malloc(sizeof(g));
   t = (int *)malloc(sizeof(t));
 
-  for (int i = 0; i < strlen(dna); i++) {
-    // i[dna] == dna[i] via pointer identity
-    if (asmCheck('A', i[dna])) { *a = asmInc(a); }
-    else if (asmCheck('C', i[dna])) { *c = asmInc(c); }
-    else if (asmCheck('G', i[dna])) { *g = asmInc(g); }
-    else if (asmCheck('T', i[dna])) { *t = asmInc(t); }
-  }
+  // Declare function
+  void pseudoSwitch(char ch, int *a, int *c, int *g, int *t);
 
+  // Evaluate loop inside of loop declaration
+  // i[dna] == dna[i] via pointer identity
+  for (int i = 0; i < strlen(dna); pseudoSwitch(i++[dna], a, c, g, t)) {}
+
+  // Print
   printf("A: %d, C: %d, G: %d, T: %d\n", *a, *c, *g, *t);
 
   // Malloc should be paired with free when done
   free(a); free(c); free(g); free(t);
 
+}
+
+void pseudoSwitch(char ch, int *a, int *c, int *g, int *t) {
+  if (asmCheck('A', ch)) { *a = asmInc(a); }
+  else if (asmCheck('C', ch)) { *c = asmInc(c); }
+  else if (asmCheck('G', ch)) { *g = asmInc(g); }
+  else if (asmCheck('T', ch)) { *t = asmInc(t); }
 }
 
 // Take first commandline arguement to program and sort it
@@ -75,3 +82,4 @@ void main(int argc, char ** argv) {
   }
 
 }
+
