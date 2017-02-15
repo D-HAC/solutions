@@ -4,3 +4,6 @@
 [Rr]elease/
 [Oo]bj/
 *.suo
+
+# Python Stuff
+*.pyc
